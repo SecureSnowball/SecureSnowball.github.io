@@ -1,5 +1,5 @@
 baseURL = "https://securesnowball.github.io"
-title   = "Hello Friend NG"
+title   = "Tech Notes"
 languageCode = "en-us"
 theme = "hello-friend-ng"
 
@@ -61,7 +61,7 @@ disableHugoGeneratorInject = false
 
   # Home subtitle of the index page.
   #
-  homeSubtitle = "Hello Friend NG"
+  homeSubtitle = "Tech Notes"
 
   # Set a background for the homepage
   # backgroundImage = "assets/images/background.jpg"
@@ -94,7 +94,7 @@ disableHugoGeneratorInject = false
   #
   # Enables the global language menu.
   #
-  enableGlobalLanguageMenu = true
+  enableGlobalLanguageMenu = false
 
   # Integrate Javascript files or stylesheets by adding the url to the external assets or by
   # linking local files with their path relative to the static folder, e.g. "css/styles.css"
