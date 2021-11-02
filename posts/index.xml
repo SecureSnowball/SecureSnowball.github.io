@@ -6,8 +6,45 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://securesnowball.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>MySQL User Setup</title>
+            <link>https://securesnowball.github.io/posts/2021/11/mysql-user-setup/</link>
+            <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://securesnowball.github.io/posts/2021/11/mysql-user-setup/</guid>
+            <description>MySQL User Setup Creating a new user in MySQL and restricting it to limited database to ensure security and other common commands
+Create a user with permission to all databases sudo mysql -uroot # Fresh Ubuntu system In the following command user, localhost and password should be replaced with real values
+# MySQL 8 and above CREATE USER &amp;#39;user&amp;#39;@&amp;#39;localhost&amp;#39;IDENTIFIED WITH mysql_native_password BY &amp;#39;password&amp;#39;; # Before MySQL 8 CREATE USER &amp;#39;user&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; Grant full access to all databases GRANT ALL PRIVILEGES ON * .</description>
+            <content type="html"><![CDATA[<h2 id="mysql-user-setup">MySQL User Setup</h2>
+<p>Creating a new user in MySQL and restricting it to limited database to ensure security and other common commands</p>
+<h3 id="create-a-user-with-permission-to-all-databases">Create a user with permission to all databases</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mysql -uroot <span style="color:#75715e"># Fresh Ubuntu system</span>
+</code></pre></div><p>In the following command <code>user</code>, <code>localhost</code> and <code>password</code> should be replaced with real values</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">#</span> MySQL <span style="color:#ae81ff">8</span> <span style="color:#66d9ef">and</span> above
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;user&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>IDENTIFIED <span style="color:#66d9ef">WITH</span> mysql_native_password <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;password&#39;</span>;
+
+<span style="color:#f92672">#</span> <span style="color:#66d9ef">Before</span> MySQL <span style="color:#ae81ff">8</span>
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;user&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;password&#39;</span>;
+</code></pre></div><h3 id="grant-full-access-to-all-databases">Grant full access to all databases</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#f92672">*</span> . <span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#e6db74">&#39;user&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;
+</code></pre></div><h3 id="grant-full-access-to-only-one-databases">Grant full access to only one databases</h3>
+<p>This is more common since it is best practice to at least create one user per project. Replace <code>dbname</code> with real database name</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> dbname.<span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#e6db74">&#39;user&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+</code></pre></div><p>For example process for a project called presentation should be following</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> presentation;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;presentation_user&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">WITH</span> mysql_native_password <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;presentation_password&#39;</span>;
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> presentation.<span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#e6db74">&#39;user&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;
+</code></pre></div><h3 id="grant-read-only-access-to-only-one-databases">Grant read only access to only one databases</h3>
+<p>Useful for auditing use case where want to share read access but don&rsquo;t want to share write access</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span>, <span style="color:#66d9ef">SHOW</span> <span style="color:#66d9ef">VIEW</span> <span style="color:#66d9ef">ON</span> dbname.<span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#e6db74">&#39;user&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span>;
+FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;
+</code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Introduction</title>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Hello Friend NG</title>
+    <link>https://securesnowball.github.io/categories/mysql/</link>
+    <description>Recent content in MySQL on Hello Friend NG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://securesnowball.github.io/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL User Setup</title>
+      <link>https://securesnowball.github.io/posts/2021/11/mysql-user-setup/</link>
+      <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://securesnowball.github.io/posts/2021/11/mysql-user-setup/</guid>
+      <description>MySQL User Setup Creating a new user in MySQL and restricting it to limited database to ensure security and other common commands
+Create a user with permission to all databases sudo mysql -uroot # Fresh Ubuntu system In the following command user, localhost and password should be replaced with real values
+# MySQL 8 and above CREATE USER &amp;#39;user&amp;#39;@&amp;#39;localhost&amp;#39;IDENTIFIED WITH mysql_native_password BY &amp;#39;password&amp;#39;; # Before MySQL 8 CREATE USER &amp;#39;user&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; Grant full access to all databases GRANT ALL PRIVILEGES ON * .</description>
+    </item>
+    
+  </channel>
+</rss>
