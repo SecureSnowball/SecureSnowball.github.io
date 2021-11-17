@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 02 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://securesnowball.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://securesnowball.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Convert HEIC to JPG in Ubuntu</title>
+      <link>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</link>
+      <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</guid>
+      <description>Convert HEIC to JPG in Ubuntu Sometimes I have to share files to an old Android device which is not powerful enough to handle jpg so I follow these steps to convert HEIC to JPG
+Install dependencies This will install package we need to convert images
+sudo apt install libheif-examples Convert images The following command will convert all images in current folder
+for file in *.heic do heif-convert $file ${file/%.heic/.jpg} done </description>
+    </item>
+    
     <item>
       <title>MySQL User Setup</title>
       <link>https://securesnowball.github.io/posts/2021/11/mysql-user-setup/</link>
