@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>laravel on Tech Notes</title>
+    <link>https://securesnowball.github.io/categories/laravel/</link>
+    <description>Recent content in laravel on Tech Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 19 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://securesnowball.github.io/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup Laravel hosting in Ubuntu using Nginx</title>
+      <link>https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/</link>
+      <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/</guid>
+      <description>Install PHP in Ubuntu sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip sudo default-mysql-server Installing Composer curl -sS https://getcomposer.org/installer | php sudo mv composer.phar /usr/local/bin/composer Projects Setup Create a project in your home directory
+cd ~ mkdir ~/Projects And clone your project in Projects folder
+Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer using WebServer as owner method
+PROJECT_PATH=~/Projects/&amp;lt;project_path&amp;gt; PROJECT_PATH=~/Projects/pc-sudhar-web # Change folder ownership to webserver sudo chown -R www-data:www-data $PROJECT_PATH # Add current user to webserver group sudo usermod -a -G www-data $(whoami) # or sudo usermod -a -G www-data ubuntu # Permission on folder and files sudo find $PROJECT_PATH -type f -exec chmod 644 {} \; sudo find $PROJECT_PATH -type d -exec chmod 755 {} \; </description>
+    </item>
+    
+  </channel>
+</rss>

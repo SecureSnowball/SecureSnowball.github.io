@@ -6,8 +6,48 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 17 Nov 2021 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Sun, 19 Dec 2021 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://securesnowball.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Setup Laravel hosting in Ubuntu using Nginx</title>
+            <link>https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/</link>
+            <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/</guid>
+            <description>Install PHP in Ubuntu sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip sudo default-mysql-server Installing Composer curl -sS https://getcomposer.org/installer | php sudo mv composer.phar /usr/local/bin/composer Projects Setup Create a project in your home directory
+cd ~ mkdir ~/Projects And clone your project in Projects folder
+Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer using WebServer as owner method
+PROJECT_PATH=~/Projects/&amp;lt;project_path&amp;gt; PROJECT_PATH=~/Projects/pc-sudhar-web # Change folder ownership to webserver sudo chown -R www-data:www-data $PROJECT_PATH # Add current user to webserver group sudo usermod -a -G www-data $(whoami) # or sudo usermod -a -G www-data ubuntu # Permission on folder and files sudo find $PROJECT_PATH -type f -exec chmod 644 {} \; sudo find $PROJECT_PATH -type d -exec chmod 755 {} \; </description>
+            <content type="html"><![CDATA[<h2 id="install-php-in-ubuntu">Install PHP in Ubuntu</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip
+sudo default-mysql-server
+</code></pre></div><h3 id="installing-composer">Installing Composer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+</code></pre></div><h3 id="projects-setup">Projects Setup</h3>
+<p>Create a project in your home directory</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~
+mkdir ~/Projects
+</code></pre></div><p>And clone your project in <code>Projects</code> folder</p>
+<h3 id="setting-permissions-on-projects">Setting Permissions on Projects</h3>
+<p><a href="https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel">https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel</a>
+I prefer using WebServer as owner method</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PROJECT_PATH<span style="color:#f92672">=</span>~/Projects/&lt;project_path&gt;
+PROJECT_PATH<span style="color:#f92672">=</span>~/Projects/pc-sudhar-web
+<span style="color:#75715e"># Change folder ownership to webserver</span>
+sudo chown -R www-data:www-data $PROJECT_PATH
+
+<span style="color:#75715e"># Add current user to webserver group</span>
+sudo usermod -a -G www-data <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span>
+<span style="color:#75715e"># or</span>
+sudo usermod -a -G www-data ubuntu
+
+<span style="color:#75715e"># Permission on folder and files</span>
+sudo find $PROJECT_PATH -type f -exec chmod <span style="color:#ae81ff">644</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
+sudo find $PROJECT_PATH -type d -exec chmod <span style="color:#ae81ff">755</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
+</code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Convert HEIC to JPG in Ubuntu</title>
@@ -30,6 +70,81 @@ for file in *.heic do heif-convert $file ${file/%.heic/.jpg} done </description>
 <span style="color:#66d9ef">do</span>
 heif-convert $file <span style="color:#e6db74">${</span>file/%.heic/.jpg<span style="color:#e6db74">}</span>
 <span style="color:#66d9ef">done</span>
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Convert HEIC to JPG in Ubuntu</title>
+            <link>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</link>
+            <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</guid>
+            <description>My Fresh Linux Installation Setup After installing a Linux sysytem I make many changes to ensure maximum productivity and ensuring it is ready for development, this page contains list of everything
+ Installing zsh, tmux: sudo apt install zsh tmux Installing oh my zsh Installing oh my tmux in tmux Installing Fira Code fonts Installing Insomnia as Flatpak Install nvm for NodeJS Installing thefuck zsh plugin and thefuck Installing zsh-autosuggestions plugin Adding helpers Setting paths  Adding thefuck to ZSH Add these lines to .</description>
+            <content type="html"><![CDATA[<h2 id="my-fresh-linux-installation-setup">My Fresh Linux Installation Setup</h2>
+<p>After installing a Linux sysytem I make many changes to ensure maximum productivity and ensuring it is ready for development, this page contains list of everything</p>
+<ul>
+<li>Installing zsh, tmux: <code>sudo apt install zsh tmux</code></li>
+<li>Installing oh my zsh</li>
+<li>Installing oh my tmux in tmux</li>
+<li>Installing Fira Code fonts</li>
+<li>Installing Insomnia as Flatpak</li>
+<li>Install nvm for NodeJS</li>
+<li>Installing thefuck zsh plugin and thefuck</li>
+<li>Installing zsh-autosuggestions plugin</li>
+<li>Adding helpers</li>
+<li>Setting paths</li>
+</ul>
+<h3 id="adding-thefuck-to-zsh">Adding thefuck to ZSH</h3>
+<p>Add these lines to .zshrc in the beginning (Beginning part is important)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install --user thefuck
+</code></pre></div><pre tabindex="0"><code>export PATH=$PATH:$HOME/.local/bin # For TheFuck
+...
+plugins=(command-not-found git thefuck zsh-autosuggestions)
+</code></pre><h3 id="adding-zsh-hook-for-nvm">Adding ZSH Hook for NVM</h3>
+<pre tabindex="0"><code>autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version=&quot;$(nvm version)&quot;
+  local nvmrc_path=&quot;$(nvm_find_nvmrc)&quot;
+
+  if [ -n &quot;$nvmrc_path&quot; ]; then
+    local nvmrc_node_version=$(nvm version &quot;$(cat &quot;${nvmrc_path}&quot;)&quot;)
+
+    if [ &quot;$nvmrc_node_version&quot; = &quot;N/A&quot; ]; then
+      nvm install
+    elif [ &quot;$nvmrc_node_version&quot; != &quot;$node_version&quot; ]; then
+      nvm use
+    fi
+  elif [ &quot;$node_version&quot; != &quot;$(nvm version default)&quot; ]; then
+    echo &quot;Reverting to nvm default version&quot;
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+</code></pre><h3 id="adding-helpers">Adding helpers</h3>
+<pre tabindex="0"><code>how_in()
+{
+  where=&quot;$1&quot;; shift
+  IFS=+ curl &quot;https://cht.sh/$where/$*&quot;
+}
+</code></pre><h3 id="setting-paths-for-custom-installed-programs">Setting paths for custom installed programs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Generic</span>
+INSTALL_DIR<span style="color:#f92672">=</span>~/.Installation
+
+<span style="color:#75715e"># Android</span>
+export JAVA_HOME<span style="color:#f92672">=</span>/usr/lib/jvm/java-11-openjdk-amd64
+export ANDROID_HOME<span style="color:#f92672">=</span>$INSTALL_DIR/Android/SDK
+export ANDROID_SDK_ROOT<span style="color:#f92672">=</span>$ANDROID_HOME
+PATH<span style="color:#f92672">=</span>$INSTALL_DIR/Android/SDK/platform-tools:$PATH
+PATH<span style="color:#f92672">=</span>$PATH:$ANDROID_HOME/bin
+
+<span style="color:#75715e"># Flutter</span>
+PATH<span style="color:#f92672">=</span>$PATH:$INSTALL_DIR/Flutter_SDK/bin
+
+<span style="color:#75715e"># PHP Stuff</span>
+PATH<span style="color:#f92672">=</span>$PATH:$INSTALL_DIR/Composer
+PATH<span style="color:#f92672">=</span>$PATH:~/.config/composer/vendor/bin
 </code></pre></div>]]></content>
         </item>
         

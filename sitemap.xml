@@ -3,18 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://securesnowball.github.io/categories/</loc>
+    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://securesnowball.github.io/categories/laravel/</loc>
+    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://securesnowball.github.io/posts/</loc>
+    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/</loc>
+    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://securesnowball.github.io/</loc>
+    <lastmod>2021-12-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</loc>
     <lastmod>2021-11-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</loc>
     <lastmod>2021-11-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://securesnowball.github.io/categories/linux/</loc>
-    <lastmod>2021-11-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://securesnowball.github.io/posts/</loc>
-    <lastmod>2021-11-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://securesnowball.github.io/</loc>
     <lastmod>2021-11-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://securesnowball.github.io/categories/mysql/</loc>
