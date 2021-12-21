@@ -7,8 +7,7 @@
 <meta name="author" content="map[name:Captain Snowball]">
 <meta name="description" content="Install PHP in Ubuntu sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip sudo default-mysql-server Installing Composer curl -sS https://getcomposer.org/installer | php sudo mv composer.phar /usr/local/bin/composer Projects Setup Create a project in your home directory
 cd ~ mkdir ~/Projects And clone your project in Projects folder
-Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer using WebServer as owner method
-PROJECT_PATH=~/Projects/&amp;lt;project_path&amp;gt; PROJECT_PATH=~/Projects/pc-sudhar-web # Change folder ownership to webserver sudo chown -R www-data:www-data $PROJECT_PATH # Add current user to webserver group sudo usermod -a -G www-data $(whoami) # or sudo usermod -a -G www-data ubuntu # Permission on folder and files sudo find $PROJECT_PATH -type f -exec chmod 664 {} \; sudo find $PROJECT_PATH -type d -exec chmod 775 {} \; " />
+Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer me as owner because it allows rsync to copy files to the server without any permission issues." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -46,10 +45,9 @@ PROJECT_PATH=~/Projects/&amp;lt;project_path&amp;gt; PROJECT_PATH=~/Projects/pc-
 <meta itemprop="name" content="Setup Laravel hosting in Ubuntu using Nginx">
 <meta itemprop="description" content="Install PHP in Ubuntu sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip sudo default-mysql-server Installing Composer curl -sS https://getcomposer.org/installer | php sudo mv composer.phar /usr/local/bin/composer Projects Setup Create a project in your home directory
 cd ~ mkdir ~/Projects And clone your project in Projects folder
-Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer using WebServer as owner method
-PROJECT_PATH=~/Projects/&lt;project_path&gt; PROJECT_PATH=~/Projects/pc-sudhar-web # Change folder ownership to webserver sudo chown -R www-data:www-data $PROJECT_PATH # Add current user to webserver group sudo usermod -a -G www-data $(whoami) # or sudo usermod -a -G www-data ubuntu # Permission on folder and files sudo find $PROJECT_PATH -type f -exec chmod 664 {} \; sudo find $PROJECT_PATH -type d -exec chmod 775 {} \; "><meta itemprop="datePublished" content="2021-12-19T00:00:00+00:00" />
+Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer me as owner because it allows rsync to copy files to the server without any permission issues."><meta itemprop="datePublished" content="2021-12-19T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-12-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="121"><meta itemprop="image" content="https://securesnowball.github.io"/>
+<meta itemprop="wordCount" content="117"><meta itemprop="image" content="https://securesnowball.github.io"/>
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://securesnowball.github.io"/>
@@ -57,8 +55,7 @@ PROJECT_PATH=~/Projects/&lt;project_path&gt; PROJECT_PATH=~/Projects/pc-sudhar-w
 <meta name="twitter:title" content="Setup Laravel hosting in Ubuntu using Nginx"/>
 <meta name="twitter:description" content="Install PHP in Ubuntu sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip sudo default-mysql-server Installing Composer curl -sS https://getcomposer.org/installer | php sudo mv composer.phar /usr/local/bin/composer Projects Setup Create a project in your home directory
 cd ~ mkdir ~/Projects And clone your project in Projects folder
-Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer using WebServer as owner method
-PROJECT_PATH=~/Projects/&lt;project_path&gt; PROJECT_PATH=~/Projects/pc-sudhar-web # Change folder ownership to webserver sudo chown -R www-data:www-data $PROJECT_PATH # Add current user to webserver group sudo usermod -a -G www-data $(whoami) # or sudo usermod -a -G www-data ubuntu # Permission on folder and files sudo find $PROJECT_PATH -type f -exec chmod 664 {} \; sudo find $PROJECT_PATH -type d -exec chmod 775 {} \; "/>
+Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer me as owner because it allows rsync to copy files to the server without any permission issues."/>
 
 
 
@@ -66,8 +63,7 @@ PROJECT_PATH=~/Projects/&lt;project_path&gt; PROJECT_PATH=~/Projects/pc-sudhar-w
     <meta property="og:title" content="Setup Laravel hosting in Ubuntu using Nginx" />
 <meta property="og:description" content="Install PHP in Ubuntu sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip sudo default-mysql-server Installing Composer curl -sS https://getcomposer.org/installer | php sudo mv composer.phar /usr/local/bin/composer Projects Setup Create a project in your home directory
 cd ~ mkdir ~/Projects And clone your project in Projects folder
-Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer using WebServer as owner method
-PROJECT_PATH=~/Projects/&lt;project_path&gt; PROJECT_PATH=~/Projects/pc-sudhar-web # Change folder ownership to webserver sudo chown -R www-data:www-data $PROJECT_PATH # Add current user to webserver group sudo usermod -a -G www-data $(whoami) # or sudo usermod -a -G www-data ubuntu # Permission on folder and files sudo find $PROJECT_PATH -type f -exec chmod 664 {} \; sudo find $PROJECT_PATH -type d -exec chmod 775 {} \; " />
+Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer me as owner because it allows rsync to copy files to the server without any permission issues." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/" /><meta property="og:image" content="https://securesnowball.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-19T00:00:00+00:00" />
@@ -176,20 +172,16 @@ mkdir ~/Projects
 </code></pre></div><p>And clone your project in <code>Projects</code> folder</p>
 <h3 id="setting-permissions-on-projects">Setting Permissions on Projects</h3>
 <p><a href="https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel">https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel</a>
-I prefer using WebServer as owner method</p>
+I prefer me as owner because it allows rsync to copy files to the server without any permission issues.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PROJECT_PATH<span style="color:#f92672">=</span>~/Projects/&lt;project_path&gt;
-PROJECT_PATH<span style="color:#f92672">=</span>~/Projects/pc-sudhar-web
-<span style="color:#75715e"># Change folder ownership to webserver</span>
-sudo chown -R www-data:www-data $PROJECT_PATH
 
-<span style="color:#75715e"># Add current user to webserver group</span>
-sudo usermod -a -G www-data <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span>
-<span style="color:#75715e"># or</span>
-sudo usermod -a -G www-data ubuntu
-
-<span style="color:#75715e"># Permission on folder and files</span>
-sudo find $PROJECT_PATH -type f -exec chmod <span style="color:#ae81ff">664</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
-sudo find $PROJECT_PATH -type d -exec chmod <span style="color:#ae81ff">775</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
+<span style="color:#75715e"># Update folder ownership</span>
+cd $PROJECT_PATH
+sudo chown -R $USER:www-data .
+sudo find . -type f -exec chmod <span style="color:#ae81ff">664</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
+sudo find . -type d -exec chmod <span style="color:#ae81ff">775</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
+sudo chgrp -R www-data storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
 </code></pre></div>
       </div>
     </article>
@@ -215,7 +207,7 @@ sudo find $PROJECT_PATH -type d -exec chmod <span style="color:#ae81ff">775</spa
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        121 Words
+        117 Words
       </p>
 
       <p>

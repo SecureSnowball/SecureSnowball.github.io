@@ -16,8 +16,7 @@
       <guid>https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/</guid>
       <description>Install PHP in Ubuntu sudo apt install php php-mbstring php-curl php-xml php-intl php-gd php-zip php-mysql zip sudo default-mysql-server Installing Composer curl -sS https://getcomposer.org/installer | php sudo mv composer.phar /usr/local/bin/composer Projects Setup Create a project in your home directory
 cd ~ mkdir ~/Projects And clone your project in Projects folder
-Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer using WebServer as owner method
-PROJECT_PATH=~/Projects/&amp;lt;project_path&amp;gt; PROJECT_PATH=~/Projects/pc-sudhar-web # Change folder ownership to webserver sudo chown -R www-data:www-data $PROJECT_PATH # Add current user to webserver group sudo usermod -a -G www-data $(whoami) # or sudo usermod -a -G www-data ubuntu # Permission on folder and files sudo find $PROJECT_PATH -type f -exec chmod 664 {} \; sudo find $PROJECT_PATH -type d -exec chmod 775 {} \; </description>
+Setting Permissions on Projects https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel I prefer me as owner because it allows rsync to copy files to the server without any permission issues.</description>
     </item>
     
   </channel>
