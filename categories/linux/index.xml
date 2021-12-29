@@ -21,11 +21,11 @@ for file in *.heic do heif-convert $file ${file/%.heic/.jpg} done </description>
     </item>
     
     <item>
-      <title>Convert HEIC to JPG in Ubuntu</title>
-      <link>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</link>
+      <title>My Linux Setup</title>
+      <link>https://securesnowball.github.io/posts/2021/11/my-linux-setup/</link>
       <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</guid>
+      <guid>https://securesnowball.github.io/posts/2021/11/my-linux-setup/</guid>
       <description>My Fresh Linux Installation Setup After installing a Linux sysytem I make many changes to ensure maximum productivity and ensuring it is ready for development, this page contains list of everything
  Installing zsh, tmux: sudo apt install zsh tmux Installing oh my zsh Installing oh my tmux in tmux Installing Fira Code fonts Installing Insomnia as Flatpak Install nvm for NodeJS Installing thefuck zsh plugin and thefuck Installing zsh-autosuggestions plugin Adding helpers Setting paths  Adding thefuck to ZSH Add these lines to .</description>
     </item>

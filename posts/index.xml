@@ -69,11 +69,11 @@ heif-convert $file <span style="color:#e6db74">${</span>file/%.heic/.jpg<span st
         </item>
         
         <item>
-            <title>Convert HEIC to JPG in Ubuntu</title>
-            <link>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</link>
+            <title>My Linux Setup</title>
+            <link>https://securesnowball.github.io/posts/2021/11/my-linux-setup/</link>
             <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://securesnowball.github.io/posts/2021/11/convert-heic-to-jpg-in-ubuntu/</guid>
+            <guid>https://securesnowball.github.io/posts/2021/11/my-linux-setup/</guid>
             <description>My Fresh Linux Installation Setup After installing a Linux sysytem I make many changes to ensure maximum productivity and ensuring it is ready for development, this page contains list of everything
  Installing zsh, tmux: sudo apt install zsh tmux Installing oh my zsh Installing oh my tmux in tmux Installing Fira Code fonts Installing Insomnia as Flatpak Install nvm for NodeJS Installing thefuck zsh plugin and thefuck Installing zsh-autosuggestions plugin Adding helpers Setting paths  Adding thefuck to ZSH Add these lines to .</description>
             <content type="html"><![CDATA[<h2 id="my-fresh-linux-installation-setup">My Fresh Linux Installation Setup</h2>
@@ -93,37 +93,37 @@ heif-convert $file <span style="color:#e6db74">${</span>file/%.heic/.jpg<span st
 <h3 id="adding-thefuck-to-zsh">Adding thefuck to ZSH</h3>
 <p>Add these lines to .zshrc in the beginning (Beginning part is important)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install --user thefuck
-</code></pre></div><pre tabindex="0"><code>export PATH=$PATH:$HOME/.local/bin # For TheFuck
-...
-plugins=(command-not-found git thefuck zsh-autosuggestions)
-</code></pre><h3 id="adding-zsh-hook-for-nvm">Adding ZSH Hook for NVM</h3>
-<pre tabindex="0"><code>autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version=&quot;$(nvm version)&quot;
-  local nvmrc_path=&quot;$(nvm_find_nvmrc)&quot;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export PATH<span style="color:#f92672">=</span>$PATH:$HOME/.local/bin <span style="color:#75715e"># For TheFuck</span>
+<span style="color:#75715e"># Extra content goes here</span>
+plugins<span style="color:#f92672">=(</span>command-not-found git thefuck zsh-autosuggestions<span style="color:#f92672">)</span>
+</code></pre></div><h3 id="adding-zsh-hook-for-nvm">Adding ZSH Hook for NVM</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">autoload -U add-zsh-hook
+load-nvmrc<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  local node_version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>nvm version<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+  local nvmrc_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>nvm_find_nvmrc<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
 
-  if [ -n &quot;$nvmrc_path&quot; ]; then
-    local nvmrc_node_version=$(nvm version &quot;$(cat &quot;${nvmrc_path}&quot;)&quot;)
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$nvmrc_path<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    local nvmrc_node_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>nvm version <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>cat <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>nvmrc_path<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
 
-    if [ &quot;$nvmrc_node_version&quot; = &quot;N/A&quot; ]; then
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$nvmrc_node_version<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;N/A&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
       nvm install
-    elif [ &quot;$nvmrc_node_version&quot; != &quot;$node_version&quot; ]; then
+    <span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$nvmrc_node_version<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$node_version<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
       nvm use
-    fi
-  elif [ &quot;$node_version&quot; != &quot;$(nvm version default)&quot; ]; then
-    echo &quot;Reverting to nvm default version&quot;
+    <span style="color:#66d9ef">fi</span>
+  <span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$node_version<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>nvm version default<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;Reverting to nvm default version&#34;</span>
     nvm use default
-  fi
-}
+  <span style="color:#66d9ef">fi</span>
+<span style="color:#f92672">}</span>
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-</code></pre><h3 id="adding-helpers">Adding helpers</h3>
-<pre tabindex="0"><code>how_in()
-{
-  where=&quot;$1&quot;; shift
-  IFS=+ curl &quot;https://cht.sh/$where/$*&quot;
-}
-</code></pre><h3 id="setting-paths-for-custom-installed-programs">Setting paths for custom installed programs</h3>
+</code></pre></div><h3 id="adding-helpers">Adding helpers</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">how_in<span style="color:#f92672">()</span>
+<span style="color:#f92672">{</span>
+  where<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>; shift
+  IFS<span style="color:#f92672">=</span>+ curl <span style="color:#e6db74">&#34;https://cht.sh/</span>$where<span style="color:#e6db74">/</span>$*<span style="color:#e6db74">&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="setting-paths-for-custom-installed-programs">Setting paths for custom installed programs</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Generic</span>
 INSTALL_DIR<span style="color:#f92672">=</span>~/.Installation
 
