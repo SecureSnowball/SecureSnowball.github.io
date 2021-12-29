@@ -6,8 +6,8 @@ featured = ""
 featuredalt = ""
 featuredpath = ""
 linktitle = ""
-slug = "covert-hiec-to-jpg-in-ubuntu"
-title = "Convert HEIC to JPG in Ubuntu"
+slug = "my-linux-setup"
+title = "My Linux Setup"
 type = ["posts","post"]
 [ author ]
   name = "Captain Snowball"
@@ -33,14 +33,14 @@ Add these lines to .zshrc in the beginning (Beginning part is important)
 ```bash
 pip install --user thefuck
 ```
-```
+```bash
 export PATH=$PATH:$HOME/.local/bin # For TheFuck
-...
+# Extra content goes here
 plugins=(command-not-found git thefuck zsh-autosuggestions)
 ```
 
 ### Adding ZSH Hook for NVM
-```
+```bash
 autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
@@ -64,7 +64,7 @@ load-nvmrc
 ```
 
 ### Adding helpers
-```
+```bash
 how_in()
 {
   where="$1"; shift
