@@ -41,6 +41,96 @@ sudo find . -type f -exec chmod <span style="color:#ae81ff">664</span> <span sty
 sudo find . -type d -exec chmod <span style="color:#ae81ff">775</span> <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span>
 sudo chgrp -R www-data storage bootstrap/cache
 sudo chmod -R ug+rwx storage bootstrap/cache
+</code></pre></div><h3 id="deployment">Deployment</h3>
+<p>Put the following in the nginx virtual host file, Official docs are at: <a href="https://laravel.com/docs/8.x/deployment">https://laravel.com/docs/8.x/deployment</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">server {
+    listen 80;
+    listen [::]:80;
+    server_name example.com; // Real server name
+    root $PROJECT_PATH/public; // Value of $PROJECT_PATH
+
+    add_header X-Frame-Options &#34;SAMEORIGIN&#34;;
+    add_header X-Content-Type-Options &#34;nosniff&#34;;
+
+    index index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+}
+</code></pre></div><h3 id="github-actions-pipeline">GitHub Actions Pipeline</h3>
+<p>If you are using GitHub Actions and a Ubuntu VPS then you can use the following config to setup auto deployment.
+Create a file named <code>.github/workflows/deploy.yml</code>.</p>
+<p>You need to set the following secrets in your GitHub repository and setup SSH and rsync in your server</p>
+<ul>
+<li>SSH_KEY: Private SSH Key</li>
+<li>HOST: IP address or hostname of the server</li>
+<li>PORT: SSH port, 22 unless you have changed it</li>
+<li>USER: Username of the VPS, can be ubuntu, ec-user or something else</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy Production</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>: [<span style="color:#ae81ff">master]</span>
+
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">deploy</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install rsync</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">sudo apt install rsync -y</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Copy build</span>
+        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">          rm -rf .git
+</span><span style="color:#e6db74">          rm -rf .github
+</span><span style="color:#e6db74">          eval $(ssh-agent -s)
+</span><span style="color:#e6db74">          echo &#34;$SSH_KEY&#34; | tr -d &#39;\r&#39; | ssh-add -
+</span><span style="color:#e6db74">          mkdir -p ~/.ssh
+</span><span style="color:#e6db74">          chmod 700 ~/.ssh
+</span><span style="color:#e6db74">          ssh-keyscan -p $PORT $HOST &gt;&gt; ~/.ssh/known_hosts
+</span><span style="color:#e6db74">          chmod 644 ~/.ssh/known_hosts
+</span><span style="color:#e6db74">          rsync -az -e &#34;ssh -p $PORT&#34; ./ $USER@$HOST:$PROJECT_FOLDER
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;sudo chown -R $USER:www-data $PROJECT_FOLDER&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;sudo find $PROJECT_FOLDER -type f -exec chmod 664 {} \;&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;sudo find $PROJECT_FOLDER -type d -exec chmod 775 {} \;&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;sudo chgrp -R www-data $PROJECT_FOLDER/storage $PROJECT_FOLDER/bootstrap/cache&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;sudo chmod -R ug+rwx $PROJECT_FOLDER/storage $PROJECT_FOLDER/bootstrap/cache&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; composer install --no-dev -o&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan migrate --force&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan view:clear&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan view:cache&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan config:clear&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan config:cache&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan route:clear&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan route:cache&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan event:clear&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan event:cache&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan optimize&#34;
+</span><span style="color:#e6db74">          ssh $USER@$HOST -p $PORT &#34;cd $PROJECT_FOLDER; php artisan storage:link&#34;</span>          
+        <span style="color:#f92672">env</span>:
+          <span style="color:#f92672">PROJECT_FOLDER</span>: <span style="color:#ae81ff">$PROJECT_PATH // Put real value of project path here</span>
+          <span style="color:#f92672">SSH_KEY</span>: <span style="color:#ae81ff">${{ secrets.SSH_KEY }}</span>
+          <span style="color:#f92672">HOST</span>: <span style="color:#ae81ff">${{ secrets.HOST }}</span>
+          <span style="color:#f92672">PORT</span>: <span style="color:#ae81ff">${{ secrets.PORT }}</span>
+          <span style="color:#f92672">USER</span>: <span style="color:#ae81ff">${{ secrets.USER }}</span>
 </code></pre></div>]]></content>
         </item>
         
