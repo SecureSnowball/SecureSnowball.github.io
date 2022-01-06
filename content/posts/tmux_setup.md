@@ -20,6 +20,7 @@ Tmux is really easy to understand.
 - Windows have panes
 
 When you create a new session a window with pane is also created, you always work in panes.
+`CTRL + b` is default prefix key, you can change it but this cheatsheet uses `CTRL + b`.
 
 ## Install Tmux in Ubuntu
 Update command according to your distro
@@ -87,10 +88,12 @@ tmux attach-session -t session_name # Only works with names sessions
 - Vertical split: `CTRL + b, "`
 - Navigate between panes: `CTRL + b, j, k, h, l` or `CTRL + b, <arrow keys>`
 
-## Organizing panels
+## Organizing panes
 - Toggle zoom: `CTRL + b, z`
 - Resize pane: `CTRL + b, <arrow keys>` # Hold control while pressing arrow keys
-- Arranging panels: `CTRL + b, <space>`
+- Arranging panes: `CTRL + b, <space>`
+- Toggle panel zoom: `CTRL + b, z`
+- Sync panel, you can type in all panels at same time: `CTRL + b, x`
 
 ## Working with Windows
 - Create a new Window: `CTRL + b, c`
@@ -118,5 +121,5 @@ Now open tmux new session and run `CTRL + b, i` to install plugins.
 ### Restoring panel
 Ensure you follow last step and you have `tmux-resurrect` installed.
 Now you can save and restore your plugin even after system restart
-- Save: `CTRL + b, s`
-- Restore: `CTRL + b, s`
+- Save: `CTRL + b, CTRL + s`
+- Restore: `CTRL + b, CTRL + s`
