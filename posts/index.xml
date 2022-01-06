@@ -93,7 +93,7 @@ set -g @plugin &#39;tmux-plugins/tmux-resurrect&#39;
 Now you can save and restore your plugin even after system restart</p>
 <ul>
 <li>Save: <code>CTRL + b, CTRL + s</code></li>
-<li>Restore: <code>CTRL + b, CTRL + s</code></li>
+<li>Restore: <code>CTRL + b, CTRL + r</code></li>
 </ul>
 ]]></content>
         </item>
