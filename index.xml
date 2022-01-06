@@ -9,6 +9,17 @@
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sun, 19 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://securesnowball.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>My Tmux setup</title>
+      <link>https://securesnowball.github.io/posts/2021/12/my-tmux-setup/</link>
+      <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://securesnowball.github.io/posts/2021/12/my-tmux-setup/</guid>
+      <description>Install PHP in Ubuntu sudo apt install tmux # Update according to your distro Install OH My Tmux This is not a must have requirement but it is recommended unless you want a full DIY setup, You can also follow official installation instructions on the repo REAME
+Link: https://github.com/gpakosz/.tmux
+cd git clone https://github.com/gpakosz/.tmux.git ln -s -f .tmux/.tmux.conf cp .tmux/.tmux.conf.local . Add the following lines to tmux config Open .tmux.conf.local file and add the following line, it will allow input sync in all panes using CTRL + x</description>
+    </item>
+    
+    <item>
       <title>Setup Laravel hosting in Ubuntu using Nginx</title>
       <link>https://securesnowball.github.io/posts/2021/12/setup-laravel-hosting-in-ubuntu-using-nginx/</link>
       <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
