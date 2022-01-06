@@ -14,9 +14,10 @@
       <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://securesnowball.github.io/posts/2021/12/my-tmux-setup/</guid>
-      <description>Install PHP in Ubuntu sudo apt install tmux # Update according to your distro Install OH My Tmux This is not a must have requirement but it is recommended unless you want a full DIY setup, You can also follow official installation instructions on the repo REAME
-Link: https://github.com/gpakosz/.tmux
-cd git clone https://github.com/gpakosz/.tmux.git ln -s -f .tmux/.tmux.conf cp .tmux/.tmux.conf.local . Add the following lines to tmux config Open .tmux.conf.local file and add the following line, it will allow input sync in all panes using CTRL + x</description>
+      <description>Understanding Tmux terminology Tmux is really easy to understand.
+ First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes.
+Install Tmux in Ubuntu Update command according to your distro
+sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives. Possible commands for other distros</description>
     </item>
     
     <item>

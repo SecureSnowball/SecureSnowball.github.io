@@ -15,11 +15,24 @@
             <pubDate>Sun, 19 Dec 2021 00:00:00 +0000</pubDate>
             
             <guid>https://securesnowball.github.io/posts/2021/12/my-tmux-setup/</guid>
-            <description>Install PHP in Ubuntu sudo apt install tmux # Update according to your distro Install OH My Tmux This is not a must have requirement but it is recommended unless you want a full DIY setup, You can also follow official installation instructions on the repo REAME
-Link: https://github.com/gpakosz/.tmux
-cd git clone https://github.com/gpakosz/.tmux.git ln -s -f .tmux/.tmux.conf cp .tmux/.tmux.conf.local . Add the following lines to tmux config Open .tmux.conf.local file and add the following line, it will allow input sync in all panes using CTRL + x</description>
-            <content type="html"><![CDATA[<h2 id="install-php-in-ubuntu">Install PHP in Ubuntu</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install tmux <span style="color:#75715e"># Update according to your distro</span>
+            <description>Understanding Tmux terminology Tmux is really easy to understand.
+ First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes.
+Install Tmux in Ubuntu Update command according to your distro
+sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives. Possible commands for other distros</description>
+            <content type="html"><![CDATA[<h2 id="understanding-tmux-terminology">Understanding Tmux terminology</h2>
+<p>Tmux is really easy to understand.</p>
+<ul>
+<li>First we create session</li>
+<li>Sessions have Windows</li>
+<li>Windows have panes</li>
+</ul>
+<p>When you create a new session a window with pane is also created, you always work in panes.</p>
+<h2 id="install-tmux-in-ubuntu">Install Tmux in Ubuntu</h2>
+<p>Update command according to your distro</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install tmux <span style="color:#75715e"># Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives.</span>
+</code></pre></div><p>Possible commands for other distros</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dnf install tmux <span style="color:#75715e"># Fedora</span>
+sudo pacman -S tmux <span style="color:#75715e"># Arch, Manjaro</span>
 </code></pre></div><h2 id="install-oh-my-tmux">Install OH My Tmux</h2>
 <p>This is not a must have requirement but it is recommended unless you want a full DIY setup, You can also follow official installation instructions on the repo REAME</p>
 <p>Link: <a href="https://github.com/gpakosz/.tmux">https://github.com/gpakosz/.tmux</a></p>
@@ -34,10 +47,52 @@ cp .tmux/.tmux.conf.local .
 <p>Start a new unnamed session</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tmux new <span style="color:#75715e"># Not recommended but works fine for all user cases</span>
 </code></pre></div><p>Start a new named session</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tmux new -s session_name
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tmux new -s session_name <span style="color:#75715e"># Don&#39;t start it with number</span>
 </code></pre></div><p>Detach session and come back to origin shell</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">CTRL + b
-</code></pre></div>]]></content>
+</code></pre></div><p>List all running sessions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tmux ls
+</code></pre></div><p>Sample output</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">0: 1 windows (created Thu Jan  6 10:57:04 2022)
+</code></pre></div><p>Attach to a detached session</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tmux attach-session -t <span style="color:#ae81ff">0</span> <span style="color:#75715e"># Session number, check output of `tmux ls`</span>
+tmux attach-session -t session_name <span style="color:#75715e"># Only works with names sessions</span>
+</code></pre></div><h2 id="splitting-panes">Splitting panes</h2>
+<ul>
+<li>Horizontal split: <code>CTRL + b, %</code></li>
+<li>Vertical split: <code>CTRL + b, &quot;</code></li>
+<li>Navigate between panes: <code>CTRL + b, j, k, h, l</code> or <code>CTRL + b, &lt;arrow keys&gt;</code></li>
+</ul>
+<h2 id="organizing-panels">Organizing panels</h2>
+<ul>
+<li>Toggle zoom: <code>CTRL + b, z</code></li>
+<li>Resize pane: <code>CTRL + b, &lt;arrow keys&gt;</code> # Hold control while pressing arrow keys</li>
+<li>Arranging panels: <code>CTRL + b, &lt;space&gt;</code></li>
+</ul>
+<h2 id="working-with-windows">Working with Windows</h2>
+<ul>
+<li>Create a new Window: <code>CTRL + b, c</code></li>
+<li>Rename a Window: <code>CTRL + b, ,(Comma)</code></li>
+<li>Go to Window: <code>CTRL + b, &lt;1-9&gt;</code></li>
+</ul>
+<h3 id="plugins">Plugins</h3>
+<p>Tmux can be extended with plugins. I only use tmux resurrect to restore panes and windows after restarting,
+It is recommended that we use tpm (tmux plugin manager) to install plugins, tpm can handle installation of other plugins.</p>
+<h4 id="install-tpm-and-tmux-resurrect">Install tpm and tmux-resurrect</h4>
+<p>Repo Link: <a href="https://github.com/tmux-plugins/tpm">https://github.com/tmux-plugins/tpm</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+</code></pre></div><p>Open <code>~/.tmux.conf.local</code> and add the following line</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">set -g @plugin &#39;tmux-plugins/tpm&#39;
+set -g @plugin &#39;tmux-plugins/tmux-resurrect&#39;
+</code></pre></div><p>Now open tmux new session and run <code>CTRL + b, i</code> to install plugins.</p>
+<h3 id="restoring-panel">Restoring panel</h3>
+<p>Ensure you follow last step and you have <code>tmux-resurrect</code> installed.
+Now you can save and restore your plugin even after system restart</p>
+<ul>
+<li>Save: <code>CTRL + b, s</code></li>
+<li>Restore: <code>CTRL + b, s</code></li>
+</ul>
+]]></content>
         </item>
         
         <item>
