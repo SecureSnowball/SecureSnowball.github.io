@@ -122,4 +122,4 @@ Now open tmux new session and run `CTRL + b, i` to install plugins.
 Ensure you follow last step and you have `tmux-resurrect` installed.
 Now you can save and restore your plugin even after system restart
 - Save: `CTRL + b, CTRL + s`
-- Restore: `CTRL + b, CTRL + s`
+- Restore: `CTRL + b, CTRL + r`
