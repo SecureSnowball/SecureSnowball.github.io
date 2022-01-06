@@ -15,9 +15,9 @@
       
       <guid>https://securesnowball.github.io/posts/2021/12/my-tmux-setup/</guid>
       <description>Understanding Tmux terminology Tmux is really easy to understand.
- First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes.
+ First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes. CTRL + b is default prefix key, you can change it but this cheatsheet uses CTRL + b.
 Install Tmux in Ubuntu Update command according to your distro
-sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives. Possible commands for other distros</description>
+sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!</description>
     </item>
     
     <item>

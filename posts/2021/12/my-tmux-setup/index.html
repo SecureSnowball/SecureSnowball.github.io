@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:Captain Snowball]">
 <meta name="description" content="Understanding Tmux terminology Tmux is really easy to understand.
- First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes.
+ First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes. CTRL &#43; b is default prefix key, you can change it but this cheatsheet uses CTRL &#43; b.
 Install Tmux in Ubuntu Update command according to your distro
-sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives. Possible commands for other distros" />
+sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -45,29 +45,29 @@ sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary
 
 <meta itemprop="name" content="My Tmux setup">
 <meta itemprop="description" content="Understanding Tmux terminology Tmux is really easy to understand.
- First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes.
+ First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes. CTRL &#43; b is default prefix key, you can change it but this cheatsheet uses CTRL &#43; b.
 Install Tmux in Ubuntu Update command according to your distro
-sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives. Possible commands for other distros"><meta itemprop="datePublished" content="2021-12-19T00:00:00+00:00" />
+sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!"><meta itemprop="datePublished" content="2021-12-19T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-12-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="447"><meta itemprop="image" content="https://securesnowball.github.io"/>
+<meta itemprop="wordCount" content="491"><meta itemprop="image" content="https://securesnowball.github.io"/>
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://securesnowball.github.io"/>
 
 <meta name="twitter:title" content="My Tmux setup"/>
 <meta name="twitter:description" content="Understanding Tmux terminology Tmux is really easy to understand.
- First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes.
+ First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes. CTRL &#43; b is default prefix key, you can change it but this cheatsheet uses CTRL &#43; b.
 Install Tmux in Ubuntu Update command according to your distro
-sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives. Possible commands for other distros"/>
+sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!"/>
 
 
 
 
     <meta property="og:title" content="My Tmux setup" />
 <meta property="og:description" content="Understanding Tmux terminology Tmux is really easy to understand.
- First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes.
+ First we create session Sessions have Windows Windows have panes  When you create a new session a window with pane is also created, you always work in panes. CTRL &#43; b is default prefix key, you can change it but this cheatsheet uses CTRL &#43; b.
 Install Tmux in Ubuntu Update command according to your distro
-sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives. Possible commands for other distros" />
+sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://securesnowball.github.io/posts/2021/12/my-tmux-setup/" /><meta property="og:image" content="https://securesnowball.github.io"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-19T00:00:00+00:00" />
@@ -170,7 +170,8 @@ sudo apt install tmux # Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary
 <li>Sessions have Windows</li>
 <li>Windows have panes</li>
 </ul>
-<p>When you create a new session a window with pane is also created, you always work in panes.</p>
+<p>When you create a new session a window with pane is also created, you always work in panes.
+<code>CTRL + b</code> is default prefix key, you can change it but this cheatsheet uses <code>CTRL + b</code>.</p>
 <h2 id="install-tmux-in-ubuntu">Install Tmux in Ubuntu</h2>
 <p>Update command according to your distro</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install tmux <span style="color:#75715e"># Works on Debian, Ubuntu, Linux Mint, Pop!_OS, Elementary OS, other Ubutnu/Debian derivatives.</span>
@@ -207,11 +208,13 @@ tmux attach-session -t session_name <span style="color:#75715e"># Only works wit
 <li>Vertical split: <code>CTRL + b, &quot;</code></li>
 <li>Navigate between panes: <code>CTRL + b, j, k, h, l</code> or <code>CTRL + b, &lt;arrow keys&gt;</code></li>
 </ul>
-<h2 id="organizing-panels">Organizing panels</h2>
+<h2 id="organizing-panes">Organizing panes</h2>
 <ul>
 <li>Toggle zoom: <code>CTRL + b, z</code></li>
 <li>Resize pane: <code>CTRL + b, &lt;arrow keys&gt;</code> # Hold control while pressing arrow keys</li>
-<li>Arranging panels: <code>CTRL + b, &lt;space&gt;</code></li>
+<li>Arranging panes: <code>CTRL + b, &lt;space&gt;</code></li>
+<li>Toggle panel zoom: <code>CTRL + b, z</code></li>
+<li>Sync panel, you can type in all panels at same time: <code>CTRL + b, x</code></li>
 </ul>
 <h2 id="working-with-windows">Working with Windows</h2>
 <ul>
@@ -233,8 +236,8 @@ set -g @plugin &#39;tmux-plugins/tmux-resurrect&#39;
 <p>Ensure you follow last step and you have <code>tmux-resurrect</code> installed.
 Now you can save and restore your plugin even after system restart</p>
 <ul>
-<li>Save: <code>CTRL + b, s</code></li>
-<li>Restore: <code>CTRL + b, s</code></li>
+<li>Save: <code>CTRL + b, CTRL + s</code></li>
+<li>Restore: <code>CTRL + b, CTRL + s</code></li>
 </ul>
 
       </div>
@@ -261,7 +264,7 @@ Now you can save and restore your plugin even after system restart</p>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        447 Words
+        491 Words
       </p>
 
       <p>
